@@ -14,15 +14,17 @@ public class Pessoa {
     private String nome;
     private String email;
     private String telefone;
+    private String cidade;
 
     public Pessoa() {
     }
 
-    public Pessoa(String id, String nome, String email, String telefone) {
+    public Pessoa(String id, String nome, String email, String telefone, String cidade) {
         this.id = id;
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
+        this.cidade = cidade;
     }
 
     public String getId() {
@@ -55,5 +57,13 @@ public class Pessoa {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
     }
 }
