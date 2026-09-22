@@ -27,6 +27,7 @@ export default function App() {
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [telefone, setTelefone] = useState('');
+  const [cidade, setCidade] = useState('');
   const [pessoas, setPessoas] = useState<Pessoa[]>([]);
   const [pronto, setPronto] = useState(false);
   const [sincronizando, setSincronizando] = useState(false);
@@ -116,12 +117,14 @@ export default function App() {
       Crypto.randomUUID(),
       nome.trim(),
       email.trim(),
-      telefone.trim()
+      telefone.trim(),
+      cidade.trim()
     );
 
     setNome('');
     setEmail('');
     setTelefone('');
+    setCidade('');
 
     await carregarPessoas();
 
@@ -169,6 +172,13 @@ export default function App() {
           keyboardType="phone-pad"
         />
 
+        <TextInput
+          style={styles.input}
+          placeholder="Cidade"
+          value={cidade}
+          onChangeText={setCidade}
+        />
+
         <Button title="Salvar" onPress={salvar} disabled={!pronto} />
 
         <Button
@@ -191,6 +201,7 @@ export default function App() {
             <Text style={styles.nome}>{item.nome}</Text>
             <Text>{item.email}</Text>
             <Text>{item.telefone}</Text>
+            <Text>{item.cidade}</Text>
             <Text style={styles.status}>
               {item.sincronizado === 1
                 ? '✓ Sincronizado'

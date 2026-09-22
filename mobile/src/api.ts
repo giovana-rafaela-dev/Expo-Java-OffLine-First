@@ -18,6 +18,7 @@ export async function enviarPessoa(pessoa: Pessoa) {
       nome: pessoa.nome,
       email: pessoa.email,
       telefone: pessoa.telefone,
+      cidade: pessoa.cidade,
     }),
   });
 
